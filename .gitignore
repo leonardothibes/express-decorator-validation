@@ -1,0 +1,17 @@
+Thumbs.db
+.DS_Store
+.buildpath
+.project
+.vagrant
+.settings
+.idea
+.vscode
+*.db
+*.bak
+*.swp
+*.log
+/build/*
+/coverage/*
+/node_modules/*
+/package-lock.json
+/test.ts

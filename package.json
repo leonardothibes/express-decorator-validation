@@ -1,0 +1,50 @@
+{
+  "name": "express-decorator-validation",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:ci": "npm test -- --coverage",
+    "coverage": "[ -d coverage ] || npm run test:ci ; google-chrome coverage/lcov-report/index.html",
+    "clean": "rm -Rf coverage",
+    "reset": "npm run clean ; rm -Rf node_modules",
+    "help": "npm-help"
+  },
+  "scriptHelp": {
+    "install": {
+      "usage": "npm install",
+      "desc": "Install the external dependencies"
+    },
+    "test": {
+      "desc": "Run unit tests"
+    },
+    "test:ci": {
+      "desc": "Run unit tests with coverage report"
+    },
+    "coverage": {
+      "desc": "Open the coverage report in Google Chrome"
+    },
+    "clean": {
+      "desc": "Clean build and coverage folders"
+    },
+    "reset": {
+      "desc": "Remove external dependencies"
+    },
+    "publish": {
+      "usage": "npm publish",
+      "desc": "Release a news version into NPM repository"
+    },
+    "help": {
+      "desc": "Show this HELP message"
+    }
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0",
+    "npm-script-help": "^1.0.0"
+  }
+}
