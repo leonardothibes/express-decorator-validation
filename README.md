@@ -13,7 +13,7 @@ npm install express-decorator-validation --save
 
 Integrate the middleware in your Express initialization
 
-### Up the Express server and definig routes:
+#### Up the Express server and definig routes:
 ```typescript
 import { Validator } from 'express-decorator-validation';
 import { PaginationRequestModel, CreateStudentModel } from './models';
@@ -29,7 +29,7 @@ class StudentController
     @Validator.query(PaginationRequestModel) // The PaginationRequestModel model is described below
     public getStudents(request, response)
     {
-        // You CAN trust in this request input now.
+        // You CAN TRUST in this request input now.
         const {page, page_size, search} = request.query;
 
         response.json({
@@ -47,7 +47,7 @@ class StudentController
     @Validator.body(CreateStudentModel)  // The CreateStudentModel model is described below
     public createStudent(request, response)
     {
-        // You CAN trust in this request input now.
+        // You CAN TRUST in this request input now.
         const { name, last_name, date_of_birth } = request.body;
 
         response.json({name, last_name, date_of_birth});
@@ -60,7 +60,7 @@ app.post('/students', StudentController.createStudent);
 app.listen(3000, () => console.log(`app is listening`));
 ```
 
-### Defining models:
+#### Defining models:
 ```typescript
 import {
     IsInt,
