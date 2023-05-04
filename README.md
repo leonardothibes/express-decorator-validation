@@ -26,7 +26,7 @@ app.use([express.json(), cors()]);
 
 class StudentController 
 {
-    @Validator.query(PaginationRequestModel) // The PaginationRequestModel model is described below
+    @Validator.query(PaginationRequestModel) // Model described below...
     public getStudents(request, response)
     {
         // You CAN TRUST in this request input now.
@@ -38,13 +38,15 @@ class StudentController
             total: 1, 
             items: [
                 {
-                    name: 'Peter', last_name: 'Parker', date_of_birth: '1990-04-23'
+                    name         : 'Peter',
+                    last_name    : 'Parker',
+                    date_of_birth: '1990-04-23',
                 }
             ]
         });
     }
 
-    @Validator.body(CreateStudentModel)  // The CreateStudentModel model is described below
+    @Validator.body(CreateStudentModel)  // Model described below...
     public createStudent(request, response)
     {
         // You CAN TRUST in this request input now.
