@@ -1,7 +1,7 @@
 {
   "name": "express-decorator-validation",
   "version": "0.0.0",
-  "description": "",
+  "description": "Decorator based validation to use in Express routes",
   "main": "src/index.js",
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
