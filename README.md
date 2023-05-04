@@ -73,9 +73,9 @@ import {
     Min,
     MinLength,
     ValidateNested 
-} from "class-validator";
+} from 'class-validator';
 
-import { Type } from "class-transformer";
+import { Type } from 'class-transformer';
 
 export class CreditCardModel 
 {
