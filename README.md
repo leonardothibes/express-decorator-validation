@@ -11,8 +11,6 @@ Install the dependency.
 npm install express-decorator-validation --save
 ```
 
-Integrate the middleware in your Express initialization
-
 #### Up the Express server and definig routes:
 ```typescript
 import { Validator } from 'express-decorator-validation';
