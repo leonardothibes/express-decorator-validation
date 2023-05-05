@@ -17,7 +17,7 @@ function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[])
             const [request, response] = arguments;
             const plain               = request[source];
 
-            const errors = await validate(plainToClass(model,  plain));
+            const errors = await validate(plainToClass(model, plain));
             if (errors.length > 0) {
                 response.status(400).json(transformValidationErrorsToJSON(errors));
                 return;
