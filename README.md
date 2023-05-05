@@ -11,8 +11,6 @@ Install the dependency.
 npm install express-decorator-validation --save
 ```
 
-Integrate the middleware in your Express initialization
-
 #### Up the Express server and definig routes:
 ```typescript
 import { Validator } from 'express-decorator-validation';
@@ -26,8 +24,8 @@ app.use([express.json(), cors()]);
 
 class StudentController 
 {
-    @Validator.query(PaginationRequestModel) // The PaginationRequestModel model is described below
-    public getStudents(request, response)
+    @Validator.query(PaginationRequestModel) // Model described below...
+    static getStudents(request, response)
     {
         // You CAN TRUST in this request input now.
         const {page, page_size, search} = request.query;
@@ -38,14 +36,16 @@ class StudentController
             total: 1, 
             items: [
                 {
-                    name: 'Peter', last_name: 'Parker', date_of_birth: '1990-04-23'
+                    name         : 'Peter',
+                    last_name    : 'Parker',
+                    date_of_birth: '1990-04-23',
                 }
             ]
         });
     }
 
-    @Validator.body(CreateStudentModel)  // The CreateStudentModel model is described below
-    public createStudent(request, response)
+    @Validator.body(CreateStudentModel)  // Model described below...
+    static createStudent(request, response)
     {
         // You CAN TRUST in this request input now.
         const { name, last_name, date_of_birth } = request.body;
@@ -73,9 +73,9 @@ import {
     Min,
     MinLength,
     ValidateNested 
-} from "class-validator";
+} from 'class-validator';
 
-import { Type } from "class-transformer";
+import { Type } from 'class-transformer';
 
 export class CreditCardModel 
 {
