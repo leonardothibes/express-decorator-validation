@@ -6,7 +6,8 @@
     "inlineSourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"],
