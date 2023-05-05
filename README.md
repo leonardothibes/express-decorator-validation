@@ -1,17 +1,17 @@
 express-decorator-validation
 ============================
 
-Decorator based validation to use in [Express](https://expressjs.com) routes.
+Decorator based validation for use in [Express](https://expressjs.com) routes.
 
 Getting started
 ---------------
 
 Install the dependency.
 ```bash
-npm install express-decorator-validation --save
+npm install --save express-decorator-validation
 ```
 
-#### Up the Express server and definig routes:
+### Up the Express server and definig routes:
 ```typescript
 import { Validator } from 'express-decorator-validation';
 import { PaginationRequestModel, CreateStudentModel } from './models';
@@ -60,8 +60,15 @@ app.post('/students', StudentController.createStudent);
 app.listen(3000, () => console.log(`app is listening`));
 ```
 
-#### Defining models:
+### Defining models:
+
+```bash
+npm install --save class-transformer class-validator reflect-metadata
+```
+
 ```typescript
+import 'reflect-metadata';
+
 import {
     IsInt,
     IsNumber,
