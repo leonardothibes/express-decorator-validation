@@ -2,13 +2,14 @@
   "name": "express-decorator-validation",
   "version": "0.1.2",
   "description": "Decorator based validation to use in Express routes",
-  "main": "src/validation.decorator.ts",
+  "main": "dist/validation.decorator.js",
   "scripts": {
+    "build": "tsc",
     "start": "ts-node-dev --ignore-watch node_modules examples/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:ci": "npm test -- --coverage",
     "coverage": "[ -d coverage ] || npm run test:ci ; google-chrome coverage/lcov-report/index.html",
-    "clean": "rm -Rf coverage",
+    "clean": "rm -Rf coverage dist",
     "reset": "npm run clean ; rm -Rf node_modules",
     "help": "npm-help"
   },
