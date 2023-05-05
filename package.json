@@ -4,6 +4,7 @@
   "description": "Decorator based validation to use in Express routes",
   "main": "src/validation.decorator.ts",
   "scripts": {
+    "start": "ts-node-dev --ignore-watch node_modules examples/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:ci": "npm test -- --coverage",
     "coverage": "[ -d coverage ] || npm run test:ci ; google-chrome coverage/lcov-report/index.html",
