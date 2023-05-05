@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
-import {validate, ValidationError} from 'class-validator';
-import {plainToClass} from 'class-transformer';
+import { validate, ValidationError } from 'class-validator';
+import { plainToClass } from 'class-transformer';
 
 function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[]): T}, source: 'body' | 'params' | 'query')
 {
@@ -13,12 +13,12 @@ function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[])
         descriptor.value = async function () {
             const model = Reflect.getOwnMetadata(metadataKey, target, propertyName);
 
-            const [req, res] = arguments;
-            const plain = req[source];
+            const [request, response] = arguments;
+            const plain               = request[source];
 
             const errors = await validate(plainToClass(model,  plain));
             if (errors.length > 0) {
-                res.status(400).json(transformValidationErrorsToJSON(errors));
+                response.status(400).json(transformValidationErrorsToJSON(errors));
                 return;
             }
 
@@ -26,9 +26,6 @@ function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[])
         };
     };
 }
-
-export const ValidateQuery = dto => validationFactory(Symbol('validate-query'), dto, 'query');
-export const ValidateBody = dto => validationFactory(Symbol('validate-body'), dto, 'body');
 
 function transformValidationErrorsToJSON(errors: ValidationError[])
 {
@@ -42,3 +39,9 @@ function transformValidationErrorsToJSON(errors: ValidationError[])
         return p;
     }, {});
 }
+
+export const ValidateQuery  = dto => validationFactory(Symbol('validate-query'), dto, 'query');
+export const ValidateParams = dto => validationFactory(Symbol('validate-body'), dto, 'body');
+export const ValidateBody   = dto => validationFactory(Symbol('validate-body'), dto, 'body');
+
+export const Validate = { query: ValidateQuery, params: ValidateParams, body: ValidateBody };
