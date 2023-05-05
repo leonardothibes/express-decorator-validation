@@ -11,6 +11,20 @@ Install the dependency.
 npm install --save express-decorator-validation
 ```
 
+Your _tsconfig.json_ will need this configuration below:
+
+```json
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,  // <= add this
+    "experimentalDecorators": true, // <= add this
+    ...
+    ...
+    ...
+  }
+}
+```
+
 ### Up the Express server and definig routes:
 ```typescript
 import { Validator } from 'express-decorator-validation';
