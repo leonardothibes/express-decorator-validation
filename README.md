@@ -16,11 +16,8 @@ Your _tsconfig.json_ will need this configuration below:
 ```json
 {
   "compilerOptions": {
-    "emitDecoratorMetadata": true,  // <= add this
-    "experimentalDecorators": true, // <= add this
-    ...
-    ...
-    ...
+    "emitDecoratorMetadata": true,  // add this
+    "experimentalDecorators": true, // add this
   }
 }
 ```
