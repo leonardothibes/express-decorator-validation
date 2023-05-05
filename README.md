@@ -25,7 +25,7 @@ app.use([express.json(), cors()]);
 class StudentController 
 {
     @Validator.query(PaginationRequestModel) // Model described below...
-    public getStudents(request, response)
+    static getStudents(request, response)
     {
         // You CAN TRUST in this request input now.
         const {page, page_size, search} = request.query;
@@ -45,7 +45,7 @@ class StudentController
     }
 
     @Validator.body(CreateStudentModel)  // Model described below...
-    public createStudent(request, response)
+    static createStudent(request, response)
     {
         // You CAN TRUST in this request input now.
         const { name, last_name, date_of_birth } = request.body;
