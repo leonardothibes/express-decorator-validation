@@ -1,10 +1,25 @@
 {
   "name": "express-decorator-validation",
   "version": "0.1.4",
-  "description": "Decorator based validation to use in Express routes",
+  "description": "Decorator based validation for use in Express routes",
   "main": "dist/validation.decorator.js",
   "types": "dist/validation.decorator.d.ts",
   "files": ["dist/**/*"],
+  "author": "Leonardo Thibes <leonardothibes@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/leonardothibes/express-decorator-validation#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardothibes/express-decorator-validation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leonardothibes/express-decorator-validation/issues"
+  },
+  "keywords": [
+    "express",
+    "validation",
+    "decorator"
+  ],
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",

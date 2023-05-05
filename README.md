@@ -1,7 +1,7 @@
 express-decorator-validation
 ============================
 
-Decorator based validation to use in [Express](https://expressjs.com) routes.
+Decorator based validation for use in [Express](https://expressjs.com) routes.
 
 Getting started
 ---------------
