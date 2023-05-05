@@ -5,12 +5,13 @@ import { plainToClass } from 'class-transformer';
 
 function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[]): T}, source: 'body' | 'params' | 'query')
 {
-    return function (target: any, propertyName: string, descriptor: TypedPropertyDescriptor<Function>)
+    return function (target: any, propertyName: string, descriptor: TypedPropertyDescriptor<Function>): void
     {
         Reflect.defineMetadata(metadataKey, model, target, propertyName);
 
         const method = descriptor.value;
-        descriptor.value = async function () {
+        descriptor.value = async function ()
+        {
             const model = Reflect.getOwnMetadata(metadataKey, target, propertyName);
 
             const [request, response] = arguments;
@@ -36,12 +37,13 @@ function transformValidationErrorsToJSON(errors: ValidationError[])
         } else {
             p[c.property] = transformValidationErrorsToJSON(c.children);
         }
+
         return p;
     }, {});
 }
 
-export const ValidateQuery  = dto => validationFactory(Symbol('validate-query'), dto, 'query');
-export const ValidateParams = dto => validationFactory(Symbol('validate-body'), dto, 'body');
-export const ValidateBody   = dto => validationFactory(Symbol('validate-body'), dto, 'body');
+export const ValidateQuery  = (dto: any) => validationFactory(Symbol('validate-query'), dto, 'query');
+export const ValidateParams = (dto: any) => validationFactory(Symbol('validate-params'), dto, 'params');
+export const ValidateBody   = (dto: any) => validationFactory(Symbol('validate-body'), dto, 'body');
 
 export const Validate = { query: ValidateQuery, params: ValidateParams, body: ValidateBody };
