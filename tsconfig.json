@@ -8,7 +8,9 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["node_modules/@types"]
+    "declaration": true,
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "./dist",
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
