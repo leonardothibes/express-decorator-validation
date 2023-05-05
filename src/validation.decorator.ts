@@ -5,7 +5,7 @@ import { plainToClass } from 'class-transformer';
 
 function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[]): T}, source: 'body' | 'params' | 'query')
 {
-    return function (target: any, propertyName: string, descriptor: TypedPropertyDescriptor<Function>): void
+    return function(target: any, propertyName: string, descriptor: TypedPropertyDescriptor<any>): void
     {
         Reflect.defineMetadata(metadataKey, model, target, propertyName);
 
