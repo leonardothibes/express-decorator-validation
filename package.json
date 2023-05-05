@@ -2,7 +2,7 @@
   "name": "express-decorator-validation",
   "version": "0.0.0",
   "description": "Decorator based validation to use in Express routes",
-  "main": "src/index.js",
+  "main": "src/validation.decorator.ts",
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:ci": "npm test -- --coverage",
@@ -42,7 +42,8 @@
   "dependencies": {
     "@types/validator": "^13.7.15",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.0"
+    "class-validator": "^0.14.0",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
