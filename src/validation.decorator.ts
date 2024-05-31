@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import { validate, ValidationError } from 'class-validator';
 import { plainToClass } from 'class-transformer';
 
-function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[]): T}, source: 'body' | 'params' | 'query')
+function validationFactory<T>(metadataKey: Symbol, model: { new (...args: any[]): T}, source: 'body' | 'params' | 'query' | 'headers')
 {
     return function(target: any, propertyName: string, descriptor: TypedPropertyDescriptor<any>): void
     {
@@ -42,8 +42,9 @@ function transformValidationErrorsToJSON(errors: ValidationError[])
     }, {});
 }
 
-export const ValidateQuery  = (dto: any) => validationFactory(Symbol('validate-query'), dto, 'query');
-export const ValidateParams = (dto: any) => validationFactory(Symbol('validate-params'), dto, 'params');
-export const ValidateBody   = (dto: any) => validationFactory(Symbol('validate-body'), dto, 'body');
+export const ValidateQuery   = (dto: any) => validationFactory(Symbol('validate-query')  , dto, 'query');
+export const ValidateParams  = (dto: any) => validationFactory(Symbol('validate-params') , dto, 'params');
+export const ValidateBody    = (dto: any) => validationFactory(Symbol('validate-body')   , dto, 'body');
+export const ValidateHeaders = (dto: any) => validationFactory(Symbol('validate-headers'), dto, 'headers');
 
-export const Validate = { query: ValidateQuery, params: ValidateParams, body: ValidateBody };
+export const Validate = { query: ValidateQuery, params: ValidateParams, body: ValidateBody, headers: ValidateHeaders };
