@@ -1,6 +1,6 @@
 {
   "name": "express-decorator-validation",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Decorator based validation for use in Express routes",
   "main": "dist/validation.decorator.js",
   "types": "dist/validation.decorator.d.ts",
